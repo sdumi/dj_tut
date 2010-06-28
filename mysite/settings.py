@@ -1,10 +1,12 @@
 # Django settings for mysite project.
-
+import os.path
 DEBUG = True
+#DEBUG = False
 TEMPLATE_DEBUG = DEBUG
+PROJECT_DIR = os.path.dirname(__file__)
 
 ADMINS = (
-    # ('Your Name', 'your_email@domain.com'),
+    # ('Dumi', 'dumitru.sipos@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -12,7 +14,8 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/home/dsipos/prg/web/dj_tut/databases/mysite.db',                      # Or path to database file if using sqlite3.
+#        'NAME': '/home/dsipos/prg/web/dj_tut/databases/mysite.db',                      # Or path to database file if using sqlite3.
+        'NAME': os.path.join(PROJECT_DIR, "../databases/mysite.db"),
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -77,11 +80,14 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'mysite.urls'
 
-TEMPLATE_DIRS = (
+#TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    "/home/dsipos/prg/web/dj_tut/templates",
+#    "/home/dsipos/prg/web/dj_tut/templates",
+#)
+TEMPLATE_DIRS = (
+    os.path.join(PROJECT_DIR, "../templates"),
 )
 
 INSTALLED_APPS = (
