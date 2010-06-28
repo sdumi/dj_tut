@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     # to INSTALLED_APPS to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'polls/', include('mysite.polls.urls')),
+    (r'aprozar/', include('mysite.aprozar.urls')),
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
     #(r'^latest/$', mysite.books.views.latest_books),
