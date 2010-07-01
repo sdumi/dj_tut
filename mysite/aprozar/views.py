@@ -8,6 +8,6 @@ register = Library()
 #def index(request):
 #    return HttpResponse("Hello")
 def index(request):
-    latest_prod_list = Products.objects.all()[:2]
+    latest_prod_list = Products.objects.all()[:25]
 #    return render_to_response('aprozar/index_aprozar.html', {'object_list': latest_prod_list})
     return render_to_response('aprozar/index.html', {'object_list': latest_prod_list})

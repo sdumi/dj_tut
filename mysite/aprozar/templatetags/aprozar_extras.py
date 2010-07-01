@@ -5,17 +5,15 @@ register = Library()
 # using the decorator syntax to register our new inclusion tag: show_results:
 @register.inclusion_tag('aprozar/show_results.html')
 def show_results(products):
-#    products = Products.objects.all()
     return {'products' : products}
-#register.tag('results', show_results)
 
-def search_form(cl):
+@register.inclusion_tag('aprozar/search_form.html')
+def search_form():
     """
     Displays a search form for searching the list.
     """
     return {
-        'cl': cl,
-        'show_result_count': cl.result_count != cl.full_result_count,
-        'search_var': SEARCH_VAR
+        'show_result_count': False,
+        'search_var': 'name'
     }
-search_form = register.inclusion_tag('admin/search_form.html')(search_form)
+#search_form = register.inclusion_tag('admin/search_form.html')(search_form)

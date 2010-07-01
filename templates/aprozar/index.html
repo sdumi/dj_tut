@@ -15,46 +15,10 @@
 
 {% if object_list %}
     <div class="module">
-{% comment %}
-    {% block search %}{% search_form cl %}{% endblock %}
-{% endcomment %}
+    {% search_form %}
     <table summary="{% blocktrans %}Products:{% endblocktrans %}">
      <caption><a href="{{ app.app_url }}" class="section">{% blocktrans%}Available products:{% endblocktrans %}</a></caption>
-{% show_results object_list %}
-{% comment %}
-            <tr>
-	            <th>Name</th>
-	            <th>Price</th>
-	            <th>Store</th>
-	            <th>Producer</th>
-	        </tr> 
-    {% for prod in object_list %}
-            <tr>
-                <td scope="row">{{ prod.name }}</td>
-                <td>{{ prod.price }}</td>
-                <td>{{ prod.store.name }}</td>
-                <td>{{ prod.producer.name }}</td>
-
-            {% if model.perms.change %}
-                <th scope="row"><a href="{{ model.admin_url }}">{{ model.name }}</a></th>
-            {% else %}
-                <th scope="row">{{ model.name }}</th>
-            {% endif %}
-
-            {% if model.perms.add %}
-                <td><a href="{{ model.admin_url }}add/" class="addlink">{% trans 'Add' %}</a></td>
-            {% else %}
-                <td>&nbsp;</td>
-            {% endif %} 
-
-            {% if model.perms.change %}
-                <td><a href="{{ model.admin_url }}" class="changelink">{% trans 'Change' %}</a></td>
-            {% else %}
-                <td>&nbsp;</td>
-            {% endif %}
-            </tr>
-    {% endfor %}
-{% endcomment %}
+    {% show_results object_list %}
     </table>
     </div>
 {% else %}
