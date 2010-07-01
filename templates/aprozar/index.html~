@@ -1,6 +1,5 @@
 {% extends "aprozar/base_site.html" %}
 {% load i18n %}
-{% load aprozar_extras %}
 
 {% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% load adminmedia %}{% admin_media_prefix %}css/dashboard.css" />{% endblock %}
 
@@ -20,7 +19,7 @@
 {% endcomment %}
     <table summary="{% blocktrans %}Products:{% endblocktrans %}">
      <caption><a href="{{ app.app_url }}" class="section">{% blocktrans%}Available products:{% endblocktrans %}</a></caption>
-{% show_results object_list %}
+{% show_results %}
 {% comment %}
             <tr>
 	            <th>Name</th>
