@@ -1,1 +1,1 @@
-from django.conf.urls.defaults import *from mysite.aprozar.models import Productsurlpatterns = patterns('',    (r'^$', 'mysite.aprozar.views.index'),)
+from django.conf.urls.defaults import *from mysite.aprozar.models import Productsurlpatterns = patterns('',    (r'^results/$', 'mysite.aprozar.views.search'),    (r'^$', 'mysite.aprozar.views.index'),)

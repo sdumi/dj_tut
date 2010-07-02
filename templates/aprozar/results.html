@@ -1,0 +1,20 @@
+{% extends "aprozar/index.html" %}
+{% load i18n %}
+{% load aprozar_extras %}
+
+{% block content %}
+<div id="content-main">
+
+{% if found_entries %}
+    <div class="module">
+    {% search_form %}
+    <table summary="{% blocktrans %}Products:{% endblocktrans %}">
+     <caption><a href="{{ app.app_url }}" class="section">{% blocktrans%}Available products:{% endblocktrans %}</a></caption>
+    {% show_results found_entries %}
+    </table>
+    </div>
+{% else %}
+    <p>{% trans "Nothing found..." %}</p>
+{% endif %}
+</div>
+{% endblock %}

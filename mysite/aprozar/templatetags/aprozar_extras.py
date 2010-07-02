@@ -14,6 +14,6 @@ def search_form():
     """
     return {
         'show_result_count': False,
-        'search_var': 'name'
+        'search_var': 'q'
     }
 #search_form = register.inclusion_tag('admin/search_form.html')(search_form)
