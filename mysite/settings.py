@@ -11,11 +11,20 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+# shortcut for os.path.join
+# called: pj("templates") ==> os.path.join(PROJECT_DIR, "templates")
+pj = lambda filename: os.path.join(PROJECT_DIR, filename)
+# just an alias for os.path.joi
+j = os.path.join
+# cannot use pj here: it takes only the new path to be added to PROJECT_DIR
+# and I do not want to pass "../databases"... not sure how well that works on Windows...
+dbname = j(j(j(PROJECT_DIR, ".."), "databases"), "mysite.db")
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
 #        'NAME': '/home/dsipos/prg/web/dj_tut/databases/mysite.db',                      # Or path to database file if using sqlite3.
-        'NAME': os.path.join(PROJECT_DIR, "../databases/mysite.db"),
+        'NAME': dbname,
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -85,9 +94,10 @@ ROOT_URLCONF = 'mysite.urls'
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 #    "/home/dsipos/prg/web/dj_tut/templates",
-#)
+#
+
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_DIR, "../templates"),
+        j(j(PROJECT_DIR, ".."), "templates"),
 )
 
 INSTALLED_APPS = (
