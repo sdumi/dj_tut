@@ -12,6 +12,8 @@ def index(request):
 #    return render_to_response('aprozar/index_aprozar.html', {'object_list': latest_prod_list})
     return render_to_response('aprozar/index.html', {'object_list': latest_prod_list})
 
+
+
 # from http://www.julienphalip.com/blog/2008/08/16/adding-search-django-site-snap/
 def search(request):
     query_string = ''
