@@ -6,4 +6,4 @@
 {% endfor %}
 </ul>
 
-<a href="/polls/{{ object.id }}/">Vote again?</a>
+<a href='{% url dum_polls %}{{ object.id }}/'>Vote again?</a>

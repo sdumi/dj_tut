@@ -1,8 +1,7 @@
 <h1>{{ object.question }}</h1>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-'{# {% url dum-poll-id  as the_url %} #}'
-<strong>dumi  {# {{ the_ur2l }} #} {# {% url dum-poll-id %} #} </strong>
- <form action="/polls/{{ object.id }}/vote/" method="post"> 
+<strong> {#  {% url dum_poll_id  object.id %} #}</strong>
+ <form action='{% url dum_poll_id object.id %}vote/' method="post"> 
 {% csrf_token %}
 {% for choice in object.choice_set.all %}
   <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
