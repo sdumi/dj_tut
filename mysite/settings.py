@@ -1,12 +1,13 @@
 # Django settings for mysite project.
 import os.path
-#DEBUG = True
-DEBUG = False
+DEBUG = True
+#DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 PROJECT_DIR = os.path.dirname(__file__)
 
 ADMINS = (
     # ('Dumi', 'dumitru.sipos@gmail.com'),
+    ('Dumitru Sipos', 'dumitru.sipos@alcatel-lucent.com')
 )
 
 MANAGERS = ADMINS
@@ -63,7 +64,7 @@ MEDIA_ROOT = j(j(PROJECT_DIR, ".."), "media")
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = 'http://127.0.0.1:8000/media/'
+MEDIA_URL = 'http://127.0.0.1:8080/media/'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
