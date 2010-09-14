@@ -1,3 +1,6 @@
+{% extends "polls/base_site.html" %}
+{% block header_left %}polls {% endblock %}
+{% block main_content %}
 <h1>{{ object.question }}</h1>
 
 <ul>
@@ -7,3 +10,4 @@
 </ul>
 
 <a href='{% url dum_polls %}{{ object.id }}/'>Vote again?</a>
+{% endblock %}

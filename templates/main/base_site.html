@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }} | {% trans 'a homepage of Dumi' %}{% endblock %}
+
+{#
+{% block header_left %}a homepage of Dumi{% endblock %}
+#}
+{% block main_left_side %}
+<a href='/django'>home</a><br />
+<a href='{% url dum_polls %}'>polls</a><br />
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

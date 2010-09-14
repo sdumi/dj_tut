@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ LANGUAGE_CODE }}" xml:lang="{{ LANGUAGE_CODE }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    {% block extrastyle %}{% endblock %}
+    <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{% load adminmedia %}{% admin_media_prefix %}css/ie.css{% endblock %}" /><![endif]-->
+    {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% admin_media_prefix %}css/rtl.css{% endblock %}" />{% endif %}
+    <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% admin_media_prefix %}{% endfilter %}";</script>
+    {% block extrahead %}{% endblock %}
+    {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+    <script type="text/javascript" src="/media/js/dumscript.js"></script>
+    <script>switchToCSSTheme("/media/css/default.css")</script>
+  </head>
+  {% load i18n %}
+  
+  <body>
+  
+    <!-- Container -->
+    <div id="main-container">
+      
+      <!-- Header -->
+      <div id="header">
+	<div class="smallinnertube">
+	  <div class="leftaligned"> {% block header_left %}{% endblock %} </div>
+	  <div class="rightaligned">
+	    layout:
+	    <a href="javascript:switchToCSSTheme('/media/css/default.css')"> centered </a> |
+	    <a href="javascript:switchToCSSTheme('/media/css/wide.css')"> wide </a>
+	  </div> </div>
+      </div>
+      <div id="main-content-wrapper">
+	<div id="main-content">
+	  {% block main_content %}{% endblock %}
+	</div>
+      </div>
+
+      <div id="main-left-side">
+	<div class="innertube">
+	  {% block main_left_side %}{% endblock %}
+      </div></div>
+      
+      <div id="footer">
+	Made by 
+	<a href='mailto:dumitru.sipos@alcatel-lucent.com?subject=[rotimd0003t.tm.alcatel.ro:8080] Hi'>Dumi</a>... mostly for himself.
+      </div>
+    </div><!-- main-container -->
+  </body>
+</html>
