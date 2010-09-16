@@ -45,17 +45,6 @@ function initGame(canvasElement, messageElement) {
 }
 
 function newGame() {
-    /*
-	gPieces = [new Cell(kBoardHeight - 3, 0),
-		new Cell(kBoardHeight - 2, 0, true),
-		new Cell(kBoardHeight - 1, 0),
-		new Cell(kBoardHeight - 3, 1),
-		new Cell(kBoardHeight - 2, 1, true),
-		new Cell(kBoardHeight - 1, 1, true),
-		new Cell(kBoardHeight - 3, 2, true),
-		new Cell(kBoardHeight - 2, 2),
-		new Cell(kBoardHeight - 1, 2)];
-*/
     gPieces=[];
     gPiecesNr = 0;
     isCurrentPieceX = true;
@@ -164,11 +153,6 @@ function xoOnClick(e) {
 	return;
     }
     var cell = getCursorPosition(e);
-    //	gMessageElement.innerHTML = "(" + e.pageX + ", " + e.pageY + ")" +
-    //		"<br>gCanvasElement.offsetLeft: " + gCanvasElement.offsetLeft +
-    //		"<br>gCanvasElement.offsetTop: " + gCanvasElement.offsetTop +
-    //		"<br>gCanvasElement.offsetWidth: " + gCanvasElement.offsetWidth +
-    //		"<br>gCanvasElement.offsetHeight: " + gCanvasElement.offsetHeight;
     // check if we clicked on an empty cell...
     for (var i = 0; i < gPiecesNr; i++) {
 	if ((gPieces[i].row == cell.row) &&
@@ -204,72 +188,50 @@ function clickOnEmptyCell(cell) {
 
     // try to find 5 consecutive ones...
     // on line:
-    nrConsec = 1;
-    for (var i=0; i < gPiecesLines[cell.row].length - 1; i++)
-    {
-	if (((gPiecesLines[cell.row][i].column + 1) == gPiecesLines[cell.row][i+1].column) &&
-	    (gPiecesLines[cell.row][i].isX == gPiecesLines[cell.row][i+1].isX))
-	{
-	    if (nrConsec == 1)
-	    {
-		cellStart = gPiecesLines[cell.row][i];
-	    }
-	    nrConsec = nrConsec + 1;
-	    if (nrConsec == 5)
-	    {
-		cellEnd = gPiecesLines[cell.row][i+1];
-		gameOver = true;
-	    }
-	} else
-	{
-	    nrConsec = 1;
-	}
-    }
-    // columns:
-    nrConsec = 1;
-    for (var i=0; i < gPiecesColumns[cell.column].length - 1; i++)
-    {
-	if (((gPiecesColumns[cell.column][i].row + 1) == gPiecesColumns[cell.column][i+1].row) &&
-	    (gPiecesColumns[cell.column][i].isX == gPiecesColumns[cell.column][i+1].isX))
-	{
-	    if (nrConsec == 1)
-	    {
-		cellStart = gPiecesColumns[cell.column][i];
-	    }
-	    nrConsec = nrConsec + 1;
-	    if (nrConsec == 5)
-	    {
-		cellEnd = gPiecesColumns[cell.column][i+1];
-		gameOver = true;
-	    }
-	} else
-	{
-	    nrConsec = 1;
-	}
-    }
-    
+    findConsec(gPiecesLines[cell.row],
+	       function (a, b){return (a.column + 1) == b.column});
+    // on column:
+    findConsec(gPiecesColumns[cell.column],
+	       function (a, b){return (a.row + 1) == b.row});    
+    // on LR diagonal:
+    findConsec(gPiecesDiags_LR[kBoardWidth - (cell.column - cell.row)],
+	       function (a, b){return (a.row + 1) == b.row});    
+    // on RL diagonal:
+    findConsec(gPiecesDiags_RL[cell.column + cell.row],
+	       function (a, b){return (a.row + 1) == b.row});    
 
     // let's draw them:
     drawBoard();
 }
 
+function findConsec(a, f) {
+    nrConsec = 1;
+    for (var i = 0; i < a.length - 1; i++)
+    {
+	if ((a[i].isX == a[i+1].isX) &&
+	    f(a[i], a[i+1]))
+	{
+	    if (nrConsec == 1)
+	    {
+		cellStart = a[i];
+	    }
+	    nrConsec = nrConsec + 1;
+	    if (nrConsec == 5)
+	    {
+		cellEnd = a[i+1];
+		gameOver = true;
+	    }
+	} else
+	{
+	    nrConsec = 1;
+	}
+    }
+}
 
 function getCursorPosition(e) {
     // returns Cell with .row and .column properties
     var x;
     var y;
-    //    if (e.pageX || e.pageY) {
-    //	x = e.pageX;
-    //	y = e.pageY;
-    //    }
-    //    else {
-    //	x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-    //	y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
-    //    }
-    //    x -= gCanvasElement.offsetLeft;
-    //    y -= gCanvasElement.offsetTop;
-    //	x -= gCanvasElement.offsetWidth;
-    //	y -= gCanvasElement.offsetHeight;
     x = e.offsetX;
     y = e.offsetY;
     x = Math.min(x, kBoardWidth * kPieceWidth);
