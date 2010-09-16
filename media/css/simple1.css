@@ -1,0 +1,19 @@
+body {min-width:640px}
+#header,#main-left-side,#main-content,#footer {
+overflow:hidden;
+display:inline-block
+}
+/* safari and opera need this */
+#header,#footer {width:100%}
+#main-left-side,#main-content,#sub-section {float:left}
+#main-content {
+width:57%;
+margin-left:20%;
+display:inline
+}
+#main-left-side {
+width:18%;
+margin-left:-77%;
+display:inline
+}
+#footer {clear:both}

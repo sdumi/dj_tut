@@ -1,0 +1,51 @@
+/**
+ * layout setup: positioning
+**/
+/**
+  Our layout is as follows:
+   ...................................
+   .            header               .
+   ...................................
+   . l  .                            .
+   . e  .                            .
+   . f  .       main body            .
+   . t  .                            .
+   .    .                            .
+   . f  .                            .
+   . r  .                            .
+   . a  .                            .
+   . m  .                            .
+   . e  .                            .
+   ...................................
+   .           footer                .
+   ...................................
+**/
+#header, #footer, #main-content, #main-left-side
+{ 
+  overflow: hidden;
+  display: inline-block;
+}
+#header, #footer
+{ 
+  width: 100%;
+}
+#main-left-side, #main-content
+{ 
+  float:left;
+}
+#main-content
+{ 
+  width: 80%;
+  margin-left: 20%;
+  display: inline;
+}
+#main-left-side
+{
+  width: 18%;
+  margin-left: -100%;
+  display: inline;
+}
+#footer
+{ 
+  clear: both;
+}

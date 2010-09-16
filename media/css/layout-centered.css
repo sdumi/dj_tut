@@ -1,0 +1,56 @@
+/**
+ * layout setup: positioning
+**/
+/**
+  Our layout is as follows:
+   ...................................
+   .            header               .
+   ...................................
+   . l  .                            .
+   . e  .                            .
+   . f  .       main body            .
+   . t  .                            .
+   .    .                            .
+   . f  .                            .
+   . r  .                            .
+   . a  .                            .
+   . m  .                            .
+   . e  .                            .
+   ...................................
+   .           footer                .
+   ...................................
+**/
+
+#main-container
+{ 
+  width: 840px; /*width of main container*/
+  margin: 0 auto; /*center container on page*/
+}
+#main-content-wrapper /*this is kinda liquid*/
+{
+  float: left;
+  width: 100%;
+}
+#main-content
+{
+  margin: 0 0  0 180px; /*Margins for content column. Should be "0 RightColumnWidth 0 LeftColumnWidth*/
+}
+#main-left-side
+{
+  float: left;
+  width: 180px; /*width of left frame*/
+  margin-left: -840px;
+}
+#header
+{ 
+  position: relative;
+  height: 30px; /*height of header*/
+  padding-top: 5px;
+}
+#footer
+{ 
+  position: relative;
+  clear: left;
+  width: 100%;
+  padding: 5px 0;
+}

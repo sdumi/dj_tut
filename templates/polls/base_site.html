@@ -3,6 +3,13 @@
 
 {% block title %}a homepage of Dumi{% endblock %}
 
-{% block header_left %}polls{% endblock %}
+{% block header_left %}<a href='{% url dum_polls %}'>polls - a small django application</a>{% endblock %}
+{% block header_right%}{% endblock %}
 
-{% block nav-global %}{% endblock %}
+{% block footer_right %}<a href="http://www.djangoproject.com/"><img src="/media/img/django-powered.png"></img></a>
+{% endblock %}
+{% block footer_left %}<a href="http://www.djangoproject.com/"><img src="/media/img/django-powered.png"></img></a>
+{% endblock %}
+
+{% block footer%}&nbsp;
+{% endblock%}

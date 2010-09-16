@@ -6,9 +6,11 @@ TEMPLATE_DEBUG = DEBUG
 PROJECT_DIR = os.path.dirname(__file__)
 
 ADMINS = (
-    # ('Dumi', 'dumitru.sipos@gmail.com'),
+    ('Dumi', 'dumitru.sipos@gmail.com'),
     ('Dumitru Sipos', 'dumitru.sipos@alcatel-lucent.com')
 )
+EMAIL_HOST='smtp.tm.alcatel.ro'
+EMAIL_PORT=25
 
 MANAGERS = ADMINS
 
@@ -114,4 +116,5 @@ INSTALLED_APPS = (
     'mysite.books',
     'mysite.aprozar',
     'mysite.notes',
+    'mysite.xo'
 )

@@ -1,14 +1,18 @@
 {% extends "main/base.html" %}
 {% load i18n %}
 
-{% block title %}{{ title }} | {% trans 'a homepage of Dumi' %}{% endblock %}
+{% block title %}a homepage of Dumi{% endblock %}
 
-{#
-{% block header_left %}a homepage of Dumi{% endblock %}
-#}
+{% block header_left %}<a href="/">a homepage of Dumi</a>{% endblock %}
+
 {% block main_left_side %}
-<a href='/'>home</a><br />
+<a href="/django">home</a><br />
 <a href='{% url dum_polls %}'>polls</a><br />
+{% endblock %}
+
+{% block footer %}
+Made by 
+<a href='mailto:dumitru.sipos@alcatel-lucent.com?subject=[rotimd0003t.tm.alcatel.ro:8080] Hi'>Dumi</a>... mostly for himself.
 {% endblock %}
 
 {% block nav-global %}{% endblock %}

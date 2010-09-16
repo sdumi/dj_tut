@@ -1,5 +1,6 @@
 {% extends "polls/base_site.html" %}
 {% block main_content %}
+<h2>Available polls:</h2>
 {% if object_list %}
   <ul>
   {% for poll in object_list %}

@@ -1,0 +1,68 @@
+ul
+{ 
+list-style-type:none;
+}
+body
+{
+  min-width: 640px;
+  margin:0;
+  padding:0;
+  line-height: 1.5em;
+}
+/**
+ * rounded corners...
+**/
+#footer, #header, #main-left-side, #main-content
+{
+  border-radius: 7px;
+ -o-border-radius: 5px;
+ -icab-border-radius: 5px;
+ -khtml-border-radius: 5px;
+ -moz-border-radius: 5px;
+ -webkit-border-radius: 5px;
+}
+
+
+/**
+ * used by the small icons in the footer :)
+**/
+.table
+{
+  overflow: hidden;
+}
+
+.table .column
+{ 
+  float: left;
+  width: 100%;
+}
+
+/**
+ * padding
+**/
+.innertube{
+margin: 10px; /*Margins for inner DIV inside each DIV (to provide padding)*/
+}
+.smallinnertube{
+margin: 5px; /*Margins for inner DIV inside each DIV (to provide padding)*/
+}
+
+
+.leftaligned
+{ 
+  position: absolute;
+  top:0;
+  left:0;
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+.rightaligned
+{ 
+  position: absolute;
+  top:0;
+  right:0;
+/*  float: right;*/
+  width: 50%;
+  text-align: right;
+}
