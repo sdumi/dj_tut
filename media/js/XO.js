@@ -232,8 +232,27 @@ function getCursorPosition(e) {
     // returns Cell with .row and .column properties
     var x;
     var y;
-    x = e.offsetX;
-    y = e.offsetY;
+    if (e.offsetX || e.offsetY)
+    {
+	x = e.offsetX;
+	y = e.offsetY;
+    } else if (e.pageX || e.pageY) 
+    {
+	x = e.pageX;
+	y = e.pageY;
+	x -= gCanvasElement.offsetLeft;
+	y -= gCanvasElement.offsetTop;
+//	x -= gCanvasElement.offsetWidth;
+//	y -= gCanvasElement.offsetHeight;
+    } else 
+    {
+	x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+	y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+    }
+
+    // x = e.offsetX;
+    // y = e.offsetY;
+
     x = Math.min(x, kBoardWidth * kPieceWidth);
     y = Math.min(y, kBoardHeight * kPieceHeight);
     var cell = new Cell(Math.floor(y/kPieceWidth), Math.floor(x/kPieceHeight));
