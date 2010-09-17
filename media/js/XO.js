@@ -1,7 +1,7 @@
-var kBoardWidth  = 15;
-var kBoardHeight = 15;
-var kPieceWidth  = 30;
-var kPieceHeight = 30;
+var kBoardWidth  = 30;
+var kBoardHeight = 30;
+var kPieceWidth  = 15;
+var kPieceHeight = 15;
 var kPixelWidth  = 1 + (kBoardWidth * kPieceWidth);
 var kPixelHeight = 1 + (kBoardHeight * kPieceHeight);
 
@@ -99,7 +99,7 @@ function drawBoard() {
 	var ye = kPieceHeight * cellEnd.row;
 	ctx.save();
 	ctx.beginPath();
-	ctx.lineWidth = 3;
+	ctx.lineWidth = 2;
 	ctx.moveTo(xs+kPieceWidth/2, ys+kPieceHeight/2);
 	ctx.lineTo(xe+kPieceWidth/2, ye+kPieceHeight/2);
 	ctx.stroke();
