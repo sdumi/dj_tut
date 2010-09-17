@@ -44,25 +44,35 @@ body
 margin: 10px; /*Margins for inner DIV inside each DIV (to provide padding)*/
 }
 .smallinnertube{
-margin: 5px; /*Margins for inner DIV inside each DIV (to provide padding)*/
+margin: 0px; /*Margins for inner DIV inside each DIV (to provide padding)*/
 }
 
 
 .leftaligned
 { 
-  position: absolute;
-  top:0;
-  left:0;
-  float: left;
-  width: 50%;
+  display:inline;
+  width: 45%;
   text-align: left;
+  float:left;
+  padding-left: 5px;
+/*  background-color:#d33;*/
 }
 .rightaligned
 { 
-  position: absolute;
-  top:0;
-  right:0;
-/*  float: right;*/
-  width: 50%;
+  display:inline;
+  width: 45%;
   text-align: right;
+  float: right;
+  padding-right: 5px;
+/*  background-color:#3d3;*/
+}
+
+.clearedboth
+{ 
+  clear:both;
+}
+
+.a-noline
+{
+  text-decoration:none;
 }

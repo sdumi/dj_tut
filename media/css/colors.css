@@ -32,7 +32,12 @@
   text-align: center;
 }
 
-#footer a:link
+#header a:link, #header a:visited
+{
+  color: #4f737f;
+}
+
+#footer a:link, #footer a:visited
 {
   color:#5a860c;
 }

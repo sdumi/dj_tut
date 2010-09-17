@@ -205,6 +205,8 @@ function clickOnEmptyCell(cell) {
 }
 
 function findConsec(a, f) {
+    if (gameOver)
+	return;
     nrConsec = 1;
     for (var i = 0; i < a.length - 1; i++)
     {
