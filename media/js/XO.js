@@ -208,7 +208,7 @@ function findConsec(a, f) {
     if (gameOver)
 	return;
     nrConsec = 1;
-    for (var i = 0; i < a.length - 1; i++)
+    for (var i = 0; ((i < a.length - 1) && !gameOver); i++)
     {
 	if ((a[i].isX == a[i+1].isX) &&
 	    f(a[i], a[i+1]))
